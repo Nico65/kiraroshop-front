@@ -25,7 +25,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://3c84-102-18-37-133.ngrok-free.app/api/products")
+      .get("http://127.0.0.1:8080/api/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
