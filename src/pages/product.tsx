@@ -20,25 +20,22 @@ const ProductPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // État pour le modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Charger les produits depuis l'API
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/products")
+      .get("https://3c84-102-18-37-133.ngrok-free.app/api/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
-  // Filtrage des produits
   const filteredProducts =
     selectedCategory === "All"
       ? products
       : products.filter((product) => product.category === selectedCategory);
 
-  // Fonction pour ouvrir le modal avec le produit sélectionné
+
   const handleViewDetails = (product: Product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
@@ -49,7 +46,6 @@ const ProductPage = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-center text-black mb-10">Our Products</h1>
 
-        {/* Combobox pour les catégories */}
         <div className="flex justify-center mb-10">
           <select
             className="block w-1/2 p-3 text-base text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
@@ -64,7 +60,6 @@ const ProductPage = () => {
           </select>
         </div>
 
-        {/* Liste des produits */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {filteredProducts.map((product) => (
             <div
@@ -94,7 +89,7 @@ const ProductPage = () => {
           </p>
         )}
 
-        {/* Modal pour les détails du produit */}
+
         {selectedProduct && (
           <Modal
             show={isModalOpen}
