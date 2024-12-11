@@ -25,7 +25,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8080/api/products")
+      .get("http://localhost:8080/api/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
   }, []);

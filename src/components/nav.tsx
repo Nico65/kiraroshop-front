@@ -7,7 +7,7 @@ export function Component() {
     <header className="fixed top-0 left-0 w-full z-50">
       <Navbar fluid rounded>
         <Navbar.Brand href="#">
-          <img src="./src/assets/ico.svg" className="mr-3 h-6 sm:h-9" alt="Logo" />
+          <img src="public/assets/ico.svg" className="mr-3 h-6 sm:h-9" alt="Logo" />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Kiraroshop
           </span>
