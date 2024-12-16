@@ -1,5 +1,6 @@
 import { Button } from "flowbite-react";
 import shoesImage from '../assets/shoess.png'
+import scrollToSection from "../components/scrollSection";
 
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
             </p>
 
             <Button
-              href="./components/products/products.html"
+              onClick={() => scrollToSection("products")}
               color="yellow"
               className="mt-8 inline-flex items-center rounded-full bg-yellow-300 px-6 py-4 font-semibold text-black hover:bg-yellow-400 focus:bg-yellow-400 lg:mt-16"
               role="button"

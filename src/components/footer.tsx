@@ -9,6 +9,7 @@ import {
   BsTwitter,
 } from "react-icons/bs";
 import icoImage from '../assets/ico.svg'
+import scrollToSection from "./scrollSection";
 
 export function Foot() {
   return (
@@ -17,7 +18,7 @@ export function Foot() {
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
             <Footer.Brand
-              href="#"
+              href="https://jonastino21.github.io/kiraroshop-front/"
               src={icoImage}
               alt="Logo"
               name="Kiraroshop"
@@ -27,35 +28,35 @@ export function Foot() {
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Kiraroshop</Footer.Link>
-                <Footer.Link href="#">Kiraro</Footer.Link>
+                <Footer.Link href="https://jonastino21.github.io/kiraroshop-front/">Kiraroshop</Footer.Link>
+                <Footer.Link href="https://jonastino21.github.io/kiraroshop-front/">Kiraro</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Github</Footer.Link>
-                <Footer.Link href="#">Facebook</Footer.Link>
+                <Footer.Link href="https://github.com/Jonastino21">Github</Footer.Link>
+                <Footer.Link href="https://www.facebook.com/profile.php?id=100088673478688">Facebook</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Privacy Policy</Footer.Link>
-                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+                <Footer.Link href="https://jonastino21.github.io/kiraroshop-front/">Privacy Policy</Footer.Link>
+                <Footer.Link href="https://jonastino21.github.io/kiraroshop-front/">Terms &amp; Conditions</Footer.Link>
               </Footer.LinkGroup>
             </div>
           </div>
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="TheFuture" year={2024} />
+          <Footer.Copyright onClick={() => scrollToSection("home")} by="TheFuture" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsGithub} />
-            <Footer.Icon href="#" icon={BsDribbble} />
+            <Footer.Icon onClick={() => scrollToSection("home")} icon={BsFacebook} />
+            <Footer.Icon onClick={() => scrollToSection("home")} icon={BsInstagram} />
+            <Footer.Icon onClick={() => scrollToSection("home")} icon={BsTwitter} />
+            <Footer.Icon onClick={() => scrollToSection("home")} icon={BsGithub} />
+            <Footer.Icon onClick={() => scrollToSection("home")} icon={BsDribbble} />
           </div>
         </div>
       </div>

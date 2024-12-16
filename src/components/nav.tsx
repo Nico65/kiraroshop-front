@@ -2,12 +2,7 @@
 
 import icoImage from '../assets/ico.svg';
 import { Button, Navbar } from "flowbite-react";
-const scrollToSection = (id: string) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
+import scrollToSection from './scrollSection';
 
 export function Component() {
   return (
