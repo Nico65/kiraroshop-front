@@ -49,8 +49,6 @@ const Home = () => {
               </a>
             </p>
           </div>
-
-          {/* Image Section */}
           <div>
             <img className="w-full" src="public/assets/shoess.png" alt="Shoes" />
           </div>
