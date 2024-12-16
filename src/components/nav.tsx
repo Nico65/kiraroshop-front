@@ -13,7 +13,7 @@ export function Component() {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button>Get started</Button>
+          <Button>Log in</Button>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
