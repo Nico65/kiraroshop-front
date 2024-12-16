@@ -2,6 +2,12 @@
 
 import icoImage from '../assets/ico.svg';
 import { Button, Navbar } from "flowbite-react";
+const scrollToSection = (id: string) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export function Component() {
   return (
@@ -18,12 +24,12 @@ export function Component() {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Navbar.Link href="#" active>
+          <Navbar.Link  onClick={() => scrollToSection("home")} active>
             Home
           </Navbar.Link>
-          <Navbar.Link href="./src/pages/about.tsx">About</Navbar.Link>
-          <Navbar.Link href="#">Products</Navbar.Link>
-          <Navbar.Link href="#">Contact</Navbar.Link>
+          <Navbar.Link onClick={() => scrollToSection("about")}>About</Navbar.Link>
+          <Navbar.Link onClick={() => scrollToSection("products")}>Products</Navbar.Link>
+          <Navbar.Link onClick={() => scrollToSection("contact")}>Contact</Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
     </header>

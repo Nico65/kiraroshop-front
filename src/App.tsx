@@ -9,13 +9,22 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Home />
-      <About />
-      <ProductPage />
-      <ContactUs />
+
+      <div id="home">
+        <Home />
+      </div>
+      <div id="about">
+        <About />
+      </div>
+      <div id="products">
+        <ProductPage />
+      </div>
+      <div id="contact">
+        <ContactUs />
+      </div>
+
       <Foot />
     </div>
-
   );
 }
 
