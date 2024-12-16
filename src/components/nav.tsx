@@ -19,7 +19,7 @@ export function Component() {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Navbar.Link  onClick={() => scrollToSection("home")} active>
+          <Navbar.Link  onClick={() => scrollToSection("home")}>
             Home
           </Navbar.Link>
           <Navbar.Link onClick={() => scrollToSection("about")}>About</Navbar.Link>
