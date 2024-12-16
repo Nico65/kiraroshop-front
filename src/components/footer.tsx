@@ -16,7 +16,7 @@ export function Foot() {
           <div>
             <Footer.Brand
               href="#"
-              src="public/assets/ico.svg"
+              src="./src/assets/ico.svg"
               alt="Logo"
               name="Kiraroshop"
             />

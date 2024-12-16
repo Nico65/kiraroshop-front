@@ -50,7 +50,7 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <img className="w-full" src="public/assets/shoess.png" alt="Shoes" />
+            <img className="w-full" src="./src/assets/shoess.png" alt="Shoes" />
           </div>
         </div>
       </div>

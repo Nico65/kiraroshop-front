@@ -6,7 +6,7 @@ const About = () => {
           <div>
             <img
               className="w-full rounded-lg shadow-lg"
-              src="public/assets/shoe.jpg"
+              src="./src/assets/shoe.jpg"
               alt="About Us"
             />
           </div>
