@@ -1,4 +1,5 @@
 import { Button } from "flowbite-react";
+import shoesImage from '../assets/shoess.png'
 
 const Home = () => {
   return (
@@ -50,7 +51,7 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <img className="w-full" src="./src/assets/shoess.png" alt="Shoes" />
+            <img className="w-full" src={shoesImage} alt="Shoes" />
           </div>
         </div>
       </div>

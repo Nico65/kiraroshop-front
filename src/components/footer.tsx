@@ -8,6 +8,8 @@ import {
   BsInstagram,
   BsTwitter,
 } from "react-icons/bs";
+import icoImage from '../assets/ico.svg'
+
 export function Foot() {
   return (
     <Footer container className="bg-gray-50">
@@ -16,7 +18,7 @@ export function Foot() {
           <div>
             <Footer.Brand
               href="#"
-              src="./src/assets/ico.svg"
+              src={icoImage}
               alt="Logo"
               name="Kiraroshop"
             />

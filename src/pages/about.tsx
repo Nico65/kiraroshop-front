@@ -1,3 +1,4 @@
+import shoeImage from '../assets/shoe.jpg'
 const About = () => {
   return (
     <section className="bg-gray-100 py-10 sm:py-16 lg:py-40">
@@ -6,7 +7,7 @@ const About = () => {
           <div>
             <img
               className="w-full rounded-lg shadow-lg"
-              src="./src/assets/shoe.jpg"
+              src={shoeImage}
               alt="About Us"
             />
           </div>
