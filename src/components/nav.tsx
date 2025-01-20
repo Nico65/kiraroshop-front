@@ -3,7 +3,7 @@ import { Button, Navbar } from "flowbite-react";
 import scrollToSection from './scrollSection';
 
 interface NavbarProps {
-  onNavigate: (page: string) => void; // Définir le type de la prop
+  onNavigate: (page: string) => void; 
 }
 
 export function Component({ onNavigate }: NavbarProps) {
@@ -18,7 +18,7 @@ export function Component({ onNavigate }: NavbarProps) {
         </Navbar.Brand>
 
         <div className="flex md:order-2">
-          <Button onClick={() => onNavigate("login")}>Login</Button> {/* Naviguer vers la page Login */}
+          <Button onClick={() => onNavigate("login")}>Login</Button> {}
           <Navbar.Toggle />
         </div>
 

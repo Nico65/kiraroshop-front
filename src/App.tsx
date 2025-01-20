@@ -20,8 +20,8 @@ function App() {
 
   return (
     <div>
-      <Navbar onNavigate={setCurrentPage} /> {/* Passer la fonction de navigation */}
-      {currentPage === "login" ? ( // Afficher la page login uniquement si elle est sélectionnée
+      <Navbar onNavigate={setCurrentPage} /> {}
+      {currentPage === "login" ? ( 
         <LoginPage />
       ) : (
         <div>
