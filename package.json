@@ -17,8 +17,10 @@
   },
   "homepage": "https://jonastino21.github.io/kiraroshop-front",
   "dependencies": {
+    "@react-keycloak/web": "^3.4.0",
     "axios": "^1.7.9",
     "flowbite-react": "^0.8.0",
+    "keycloak-js": "^26.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.0.2"
