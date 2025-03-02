@@ -1,11 +1,40 @@
+import { useState, useEffect } from "react";
 import { Button } from "flowbite-react";
 import shoesImage from '../assets/shoess.png'
 import scrollToSection from "../components/scrollSection";
 
 const Home = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Vérifier si l'utilisateur est connecté
+    const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
     <section className="bg-gray-50 py-10 sm:py-16 lg:py-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Message personnalisé si utilisateur connecté */}
+        {user && (
+          <div className="mb-8 p-4 bg-blue-50 border-l-4 border-blue-500 rounded-md">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-blue-700">
+                  Bienvenue, <span className="font-bold">{user.name}</span>! Découvrez nos dernières offres sélectionnées pour vous.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="text-base font-semibold uppercase tracking-wider text-blue-600">
@@ -41,15 +70,48 @@ const Home = () => {
               </svg>
             </Button>
 
-            <p className="mt-5 text-gray-600">
-              Already joined us?{" "}
-              <a
-                href="#"
-                className="text-black transition-all duration-200 hover:underline"
-              >
-                Log in
-              </a>
-            </p>
+            {/* Modification du texte selon l'état de connexion */}
+            {!user ? (
+              <p className="mt-5 text-gray-600">
+                Already joined us?{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    // Ici, vous pourriez appeler une fonction pour naviguer vers login
+                  }}
+                  className="text-black transition-all duration-200 hover:underline"
+                >
+                  Log in
+                </a>
+              </p>
+            ) : (
+              <p className="mt-5 text-gray-600">
+                Explore your{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert('Fonctionnalité à implémenter');
+                  }}
+                  className="text-black transition-all duration-200 hover:underline"
+                >
+                  purchase history
+                </a>{" "}
+                or check your{" "}
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert('Fonctionnalité à implémenter');
+                  }}
+                  className="text-black transition-all duration-200 hover:underline"
+                >
+                  recommendations
+                </a>
+              </p>
+            )}
           </div>
           <div>
             <img className="w-full" src={shoesImage} alt="Shoes" />

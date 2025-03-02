@@ -13,7 +13,7 @@ import scrollToSection from "./scrollSection";
 
 export function Foot() {
   return (
-    <Footer container className="bg-gray-50">
+    <Footer container className="bg-gray-50 mt-auto border-t">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
@@ -36,7 +36,7 @@ export function Foot() {
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col>
                 <Footer.Link href="https://github.com/Jonastino21">Github</Footer.Link>
-                <Footer.Link href="https://www.facebook.com/profile.php?id=100088673478688">Facebook</Footer.Link>
+                <Footer.Link href="https://www.facebook.com/people/Jonastino-Heriniantsoniavo/100088673478688/">Facebook</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>

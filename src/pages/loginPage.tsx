@@ -1,30 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+interface LoginPageProps {
+  onLoginSuccess?: () => void;
+}
 
-const LoginPage = () => {
+const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [rememberMe, setRememberMe] = useState(false);
+
+  // Vérifier si déjà connecté
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
+    if (storedUser && onLoginSuccess) {
+      onLoginSuccess();
+    }
+  }, [onLoginSuccess]);
 
   const handleLogin = () => {
-
+    // Vérification simplifiée
     if (username === 'jonastino' && password === 'password') {
-      setIsLoggedIn(true); 
+      // Créer un objet utilisateur
+      const user = {
+        username,
+        name: 'Jonas Tino',
+        email: 'jonas@kiraroshop.com',
+        avatar: 'https://i.pravatar.cc/150?u=jonastino',
+      };
+      
+      // Stocker les informations utilisateur
+      if (rememberMe) {
+        localStorage.setItem('user', JSON.stringify(user));
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(user));
+      }
+      
+      // Émettre un événement personnalisé pour informer App.js
+      const loginEvent = new CustomEvent('userLogin');
+      window.dispatchEvent(loginEvent);
+      
+      // Appeler le callback si disponible
+      if (onLoginSuccess) {
+        onLoginSuccess();
+      }
     } else {
-      alert('Invalid username or password'); 
+      alert('Invalid username or password');
     }
   };
-
-
-  if (isLoggedIn) {
-    return (
-      <div className="flex justify-center items-center h-screen bg-green-100">
-        <h1 className="text-4xl font-bold text-green-700">
-          Welcome, {username}!
-        </h1>
-      </div>
-    );
-  }
   
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
@@ -75,6 +97,8 @@ const LoginPage = () => {
             <label className="flex items-center">
               <input
                 type="checkbox"
+                checked={rememberMe}
+                onChange={() => setRememberMe(!rememberMe)}
                 className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <span className="ml-2 text-sm text-gray-600">Remember me</span>
