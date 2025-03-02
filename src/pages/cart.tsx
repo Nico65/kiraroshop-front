@@ -1,4 +1,3 @@
-// src/pages/cart.tsx
 import { useState } from "react";
 import { useCart } from "../contexts/cartContext";
 import { Button, Modal, TextInput, Label, Select } from "flowbite-react";
@@ -26,7 +25,14 @@ const CartPage = () => {
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderId, setOrderId] = useState('');
   
-  const handleInputChange = (e) => {
+  // Handle input change for text inputs
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setOrderDetails(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Handle select change for dropdown inputs
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     setOrderDetails(prev => ({ ...prev, [name]: value }));
   };
@@ -41,7 +47,7 @@ const CartPage = () => {
       setOrderId(newOrderId);
       
       // Sauvegarder la commande dans le localStorage
-      const user = JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
+      // We're removing the unused 'user' variable
       const orderHistory = JSON.parse(localStorage.getItem('orderHistory') || '[]');
       
       const newOrder = {
@@ -342,7 +348,7 @@ const CartPage = () => {
                       id="country"
                       name="country"
                       value={orderDetails.country}
-                      onChange={handleInputChange}
+                      onChange={handleSelectChange}
                       required
                     >
                       <option value="">Select a country</option>

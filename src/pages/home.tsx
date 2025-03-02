@@ -3,14 +3,20 @@ import { Button } from "flowbite-react";
 import shoesImage from '../assets/shoess.png'
 import scrollToSection from "../components/scrollSection";
 
-const Home = () => {
-  const [user, setUser] = useState(null);
+// Define a type for the user object
+interface User {
+  name: string;
+  [key: string]: any; // For any other properties the user object might have
+}
 
+const Home = () => {
+  const [user, setUser] = useState<User | null>(null);
+  
   useEffect(() => {
     // Vérifier si l'utilisateur est connecté
     const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      setUser(JSON.parse(storedUser) as User);
     }
   }, []);
 

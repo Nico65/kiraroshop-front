@@ -50,7 +50,7 @@ function App() {
   }, []);
 
   // Fonction pour gérer la navigation
-  const handleNavigate = (page) => {
+  const handleNavigate = (page: string) => {
     setCurrentPage(page);
     // Si on navigue vers login, s'assurer que la page est bien affichée
     if (page === "login" || page === "cart" || page === "orders") {
